@@ -7,6 +7,5 @@ public class Main {
 
         Server server = new Server();
         server.connect();
-        System.out.println("Conexión ok");
     }
 }

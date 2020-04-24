@@ -1,9 +1,6 @@
 package server;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -29,7 +26,7 @@ public class Server {
             salida.writeUTF("Bienvenido, ¿Cómo te llamas?");
             System.out.println(entrada.readUTF());
             salida.writeUTF("¿Cuántas tareas has de realizar?");
-            //System.out.println(entrada.readUTF());
+
             //Variable para guardar el número de tareas
             int numTareas = entrada.readInt();
             System.out.println(numTareas);
@@ -39,10 +36,19 @@ public class Server {
 
             //Recogemos las tareas a realizar
             for (int i = 1; i <= numTareas; i++ ){
+                Tarea miTarea = new Tarea();
                 salida.writeUTF("Introducción de la tarea: " + i);
                 salida.writeUTF("Introduce la descripción: ");
+                miTarea.setDescripción(entrada.readUTF());                 //Recibo descripción de tarea y lo guardo en el array
+                salida.writeUTF("Introduce el estado de la tarea: ");
+                miTarea.setEstado(entrada.readUTF());                      //Recibo estado tarea y lo guardo en el array
+                tareas[i-1] = miTarea;
             }
 
+            salida.writeUTF("Listado de tareas: ");
+            for (int i = 0; i <numTareas; i++){                            //Con este bucle envío al cliente strings con las tareas
+                salida.writeUTF("Tarea: " + tareas[i].getDescripción() + ", con estado " + tareas[i].getEstado());
+            }
         }
     }
 }

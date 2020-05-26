@@ -39,7 +39,7 @@ public class Server {
                 Tarea miTarea = new Tarea();
                 salida.writeUTF("Introducción de la tarea: " + i);
                 salida.writeUTF("Introduce la descripción: ");
-                miTarea.setDescripción(entrada.readUTF());                 //Recibo descripción de tarea y lo guardo en el array
+                miTarea.setDescription(entrada.readUTF());                 //Recibo descripción de tarea y lo guardo en el array
                 salida.writeUTF("Introduce el estado de la tarea: ");
                 miTarea.setEstado(entrada.readUTF());                      //Recibo estado tarea y lo guardo en el array
                 tareas[i-1] = miTarea;
@@ -47,7 +47,7 @@ public class Server {
 
             salida.writeUTF("Listado de tareas: ");
             for (int i = 0; i <numTareas; i++){                            //Con este bucle envío al cliente strings con las tareas
-                salida.writeUTF("Tarea: " + tareas[i].getDescripción() + ", con estado " + tareas[i].getEstado());
+                salida.writeUTF("Tarea: " + tareas[i].getDescription() + ", con estado " + tareas[i].getEstado());
             }
             /*client.close();
             server.close();*/

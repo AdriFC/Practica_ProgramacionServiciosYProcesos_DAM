@@ -2,22 +2,22 @@ package server;
 
 public class Tarea {
     //Atributos
-    private String descripción;
+    private String description;
     private String estado;
 
     //Constructor vacío
     public Tarea(){
-        descripción = "";
+        description = "";
         estado = "";
     }
 
     //Getters y setters
-    public String getDescripción() {
-        return descripción;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getEstado() {
@@ -32,9 +32,9 @@ public class Tarea {
     @Override
     public String toString() {
         return "Tarea{" +
-                "descripción='" + descripción + '\'' +
-                ", estado='" + estado + '\'' +
-                '}';
+                "descripción='" + description +
+                ", estado='" + estado +
+                "}";
     }
 }
 

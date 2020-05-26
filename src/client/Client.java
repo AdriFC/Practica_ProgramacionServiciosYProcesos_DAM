@@ -43,10 +43,11 @@ public class Client {
             System.out.println(entrada.readUTF());                                      //Recibo "Listado de tareas"
 
             //Me preparo para recibir la lista de tareas
-            for (int i = 0; i<=numTareas; i++){
+            for (int i = 0; i<numTareas; i++){
                 System.out.println(entrada.readUTF());
             }
-
+            salida.close();
+            entrada.close();
             socket.close();
 
         }catch (IOException ex){

@@ -49,6 +49,8 @@ public class Server {
             for (int i = 0; i <numTareas; i++){                            //Con este bucle envío al cliente strings con las tareas
                 salida.writeUTF("Tarea: " + tareas[i].getDescripción() + ", con estado " + tareas[i].getEstado());
             }
+            /*client.close();
+            server.close();*/
         }
     }
 }
